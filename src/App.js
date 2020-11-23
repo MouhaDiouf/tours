@@ -7,6 +7,10 @@ const url = 'https://course-api.netlify.app/api/react-tours-project';
 function App() {
   const [tours, setTours] = useState([]);
   const [loading, setLoading] = useState(true);
+  const removeTour = (id) => {
+    const newTours = tours.filter((tour) => tour.id !== id);
+    setTours(newTours);
+  };
   const fetchTours = async () => {
     try {
       setLoading(true);
